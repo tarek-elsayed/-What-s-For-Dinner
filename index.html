@@ -93,17 +93,12 @@
             <div
               class="col-sm-12 col-md-12 col-lg-7 col-xl-7 position-relative"
             >
-              <img
-                id="recipe-image"
-                class="w-100 h-100 object-fit-cover"
-                src="./assets/images/imgi_2_photo-1455619452474-d2be8b1e70cd.png"
-                alt=""
-              />
+              <div class="recipe-image" id="recipe-image"></div>
               <div class="rate">
                 <div class="rate-content d-flex align-items-center gap-2">
                   <i class="fa-solid fa-star text-warning"></i>
-                  <span>4.8</span>
-                  <span class="reviews text-muted">(234 reviews) </span>
+                  <span id="ratingsAverage"></span>
+                  <span class="reviews text-muted" id="ratingsQuantity"> </span>
                 </div>
               </div>
               <div class="cook-time position-absolute">
@@ -111,17 +106,17 @@
                   <div class="col">
                     <i class="fa-solid fa-clock text-warning fs-4"></i>
                     <p class="small text-muted mb-1">Prep</p>
-                    <p id="prep-time-display" class="fw-bold mb-0">15 min</p>
+                    <p id="prepTime" class="fw-bold mb-0"></p>
                   </div>
                   <div class="col">
                     <i class="fa-solid fa-fire-burner text-danger fs-4"></i>
                     <p class="small text-muted mb-1">Cook Time</p>
-                    <p id="prep-time-display" class="fw-bold mb-0">25 min</p>
+                    <p id="cookTime" class="fw-bold mb-0"></p>
                   </div>
                   <div class="col">
                     <i class="fa-solid fa-users text-primary fs-4"></i>
                     <p class="small text-muted mb-1">Servings</p>
-                    <p id="prep-time-display" class="fw-bold mb-0">4 people</p>
+                    <p id="servings" class="fw-bold mb-0"></p>
                   </div>
                 </div>
               </div>
@@ -129,12 +124,8 @@
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 py-4">
               <div class="d-flex flex-wrap justify-content-between">
                 <div class="">
-                  <span id="difficulty-badge" class="badge bg-success"
-                    >Intermediate</span
-                  >
-                  <span id="category-badge" class="badge bg-primary"
-                    >Asian</span
-                  >
+                  <span id="difficulty-badge" class="badge bg-success"></span>
+                  <span id="category-badge" class="badge bg-primary"></span>
                 </div>
                 <div
                   class="bookmark-icons d-flex justify-content-between gap-4"
@@ -148,15 +139,15 @@
                 </div>
               </div>
               <div class="recipe-title m-3">
-                <h2>Creamy Spaghetti Carbonara</h2>
-                <p>
-                  A classic Italian pasta dish with eggs, cheese, and pancetta
-                  Ingredients
-                </p>
+                <h2 id="name"></h2>
+                <p id="description"></p>
               </div>
-              <!-- Tabs -->
               <div class="tabs mx-auto">
-                <ul class="nav nav-tabs mb-4" id="recipeTabs" role="tablist">
+                <ul
+                  class="nav nav-tabs mb-4 d-flex flex-nowrap"
+                  id="recipeTabs"
+                  role="tablist"
+                >
                   <li class="nav-item" role="presentation">
                     <button
                       class="nav-link active d-flex align-items-center justify-content-center gap-2"
@@ -225,43 +216,11 @@
                         class="tab-pane fade show active"
                         id="ingredients-tab"
                       >
-                        <div class="bg-light rounded-4 p-4">
-                          <ul class="list-unstyled mb-0" id="ingredients-list">
-                            <li class="d-flex align-items-start mb-3">
-                              <div class="badge bg-warning text-white me-3">
-                                1
-                              </div>
-                              <span class="text-dark"
-                                >400g spaghetti pasta</span
-                              >
-                            </li>
-                             <li class="d-flex align-items-start mb-3">
-                              <div class="badge bg-warning text-white me-3">
-                                1
-                              </div>
-                              <span class="text-dark"
-                                >400g spaghetti pasta</span
-                              >
-                            </li>
-                             <li class="d-flex align-items-start mb-3">
-                              <div class="badge bg-warning text-white me-3">
-                                1
-                              </div>
-                              <span class="text-dark"
-                                >400g spaghetti pasta</span
-                              >
-                            </li>
-                             <li class="d-flex align-items-start mb-3">
-                              <div class="badge bg-warning text-white me-3">
-                                1
-                              </div>
-                              <span class="text-dark"
-                                >400g spaghetti pasta</span
-                              >
-                            </li>
-                            
-                            
-                          </ul>
+                        <div class="bg-orange-100 rounded rounded-4 p-4">
+                          <ul
+                            class="list-unstyled mb-0"
+                            id="ingredients-list"
+                          ></ul>
                         </div>
                       </div>
                     </div>
@@ -273,7 +232,22 @@
                     aria-labelledby="pills-instructions-tab"
                     tabindex="0"
                   >
-                    2
+                    <div
+                      class="tab-content"
+                      style="max-height: 350px; overflow-y: auto"
+                    >
+                      <div
+                        class="tab-pane fade show active"
+                        id="instructions-tab"
+                      >
+                        <div class="bg-orange-100 rounded rounded-4 p-4">
+                          <ul
+                            class="list-unstyled mb-0"
+                            id="instructions-list"
+                          ></ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div
                     class="tab-pane fade"
@@ -282,7 +256,91 @@
                     aria-labelledby="pills-nutrition-tab"
                     tabindex="0"
                   >
-                    3
+                    <div
+                      class="row g-3"
+                      style="max-height: 350px; overflow-y: auto"
+                      id="nutrition-list"
+                    >
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-orange-50 rounded">
+                              <i class="fa-solid fa-fire"></i>
+                            </div>
+                            <span class="fw-medium">Calories</span>
+                          </div>
+                          <span class="fw-bold" id="calories-value"></span>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-blue-50 rounded">
+                              <i class="fa-solid fa-dumbbell"></i>
+                            </div>
+                            <span class="fw-medium">Protein</span>
+                          </div>
+                          <span class="fw-bold" id="protein-value"></span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-yellow-50 rounded">
+                              <i class="fa-solid fa-wheat-awn"></i>
+                            </div>
+                            <span class="fw-medium">Carbohydrates</span>
+                          </div>
+                          <span class="fw-bold" id="carbs-value"></span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-red-50 rounded">
+                              <i class="fa-solid fa-droplet"></i>
+                            </div>
+                            <span class="fw-medium">Fat</span>
+                          </div>
+                          <span class="fw-bold" id="fat-value"></span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-green-50 rounded">
+                              <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <span class="fw-medium">Fiber</span>
+                          </div>
+                          <span class="fw-bold" id="fiber-value"></span>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <div
+                          class="d-flex align-items-center justify-content-between p-3 bg-light rounded-4"
+                        >
+                          <div class="d-flex align-items-center">
+                            <div class="me-3 p-3 bg-purple-50 rounded">
+                              <i class="fa-solid fa-cube"></i>
+                            </div>
+                            <span class="fw-medium">Sodium</span>
+                          </div>
+                          <span class="fw-bold" id="sodium-value"></span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div
                     class="tab-pane fade"
@@ -291,9 +349,23 @@
                     aria-labelledby="pills-chef'sTips-tab"
                     tabindex="0"
                   >
-                    ...
+                    <div
+                      class="row g-3"
+                      style="max-height: 350px; overflow-y: auto"
+                    >
+                      <div class="col-12 col-md-12" id="tips-list"></div>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top">
+                <button
+                  id="try-another-btn"
+                  class="btn btn-warning text-white fw-semibold d-flex align-items-center gap-2 px-4 py-2 shadow"
+                >
+                  <i class="fa-solid fa-rotate"></i>
+                  Try Another Recipe
+                </button>
               </div>
             </div>
           </div>
@@ -304,183 +376,3 @@
     <script src="./js/main.js"></script>
   </body>
 </html>
-
-<!-- <main id="main-content" class="container py-4">
-      <section
-        id="recipe-display-section"
-        class="bg-white rounded-4 shadow overflow-hidden mb-4 border "
-      >
-        <div class="row g-0" >
-          <div class="col-lg-5 position-relative" style="height: 400px">
-            <img
-              id="recipe-image"
-              class="w-100 h-100 object-fit-cover"
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c987e47793-062e728ad4ccc343589c.png"
-              alt="recipe"
-            />
-
-            <div
-              class="position-absolute top-0 start-0 m-3 bg-white rounded-pill px-3 py-2 shadow"
-            >
-              <div class="d-flex align-items-center gap-2">
-                <i class="fa-solid fa-star text-warning"></i>
-                <span id="rating-average" class="fw-semibold">4.8</span>
-                <span id="rating-quantity" class="text-muted small">(234)</span>
-              </div>
-            </div>
-
-            <div class="position-absolute bottom-0 start-0 end-0 m-3 bg-white rounded-4 p-3 shadow">
-              <div class="row text-center">
-                <div class="col">
-                  <i class="fa-solid fa-clock text-warning fs-4"></i>
-                  <p class="small text-muted mb-1">Prep</p>
-                  <p id="prep-time-display" class="fw-bold mb-0">15 min</p>
-                </div>
-
-                <div class="col">
-                  <i class="fa-solid fa-fire-burner text-danger fs-4"></i>
-                  <p class="small text-muted mb-1">Cook</p>
-                  <p id="cook-time-display" class="fw-bold mb-0">20 min</p>
-                </div>
-
-                <div class="col">
-                  <i class="fa-solid fa-users text-primary fs-4"></i>
-                  <p class="small text-muted mb-1">Servings</p>
-                  <p id="servings-display" class="fw-bold mb-0">4</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-7 p-4 overflow-auto">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-4">
-              <div>
-                <div class="mb-2 d-flex gap-2 flex-wrap">
-                  <span id="difficulty-badge" class="badge bg-success"
-                    >Easy</span
-                  >
-                  <span id="category-badge" class="badge bg-primary"
-                    >Italian</span
-                  >
-                </div>
-
-                <h3 id="recipe-name" class="fw-bold">
-                  Creamy Spaghetti Carbonara
-                </h3>
-
-                <p id="recipe-description" class="text-muted">
-                  A classic Italian pasta dish
-                </p>
-              </div>
-
-              <div class="d-flex gap-2 mt-3 mt-md-0">
-                <button class="btn btn-light">
-                  <i class="fa-solid fa-bookmark"></i>
-                </button>
-                <button class="btn btn-light">
-                  <i class="fa-solid fa-share-nodes"></i>
-                </button>
-              </div>
-            </div>
-
-            <div id="time-warning" class="alert alert-danger d-none">
-              <i class="fa-solid fa-triangle-exclamation me-2"></i>
-              Extended Preparation Time
-            </div>
-
-            <ul class="nav nav-tabs mb-3" id="recipeTabs">
-              <li class="nav-item">
-                <button
-                  class="nav-link active"
-                  data-bs-toggle="tab"
-                  data-bs-target="#ingredients-tab"
-                >
-                  Ingredients
-                </button>
-              </li>
-              <li class="nav-item">
-                <button
-                  class="nav-link"
-                  data-bs-toggle="tab"
-                  data-bs-target="#instructions-tab"
-                >
-                  Instructions
-                </button>
-              </li>
-              <li class="nav-item">
-                <button
-                  class="nav-link"
-                  data-bs-toggle="tab"
-                  data-bs-target="#nutrition-tab"
-                >
-                  Nutrition
-                </button>
-              </li>
-              <li class="nav-item">
-                <button
-                  class="nav-link"
-                  data-bs-toggle="tab"
-                  data-bs-target="#tips-tab"
-                >
-                  Tips
-                </button>
-              </li>
-            </ul>
-
-            <div class="tab-content">
-              <div id="ingredients-tab" class="tab-pane fade show active">
-                <ul id="ingredients-list" class="list-group">
-                  <li class="list-group-item">400g spaghetti</li>
-                </ul>
-              </div>
-
-              <div id="instructions-tab" class="tab-pane fade">
-                <div id="instructions-list">
-                  <p>Step instruction here</p>
-                </div>
-              </div>
-
-              <div id="nutrition-tab" class="tab-pane fade">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <div
-                      class="p-3 bg-light rounded d-flex justify-content-between"
-                    >
-                      <span>Calories</span>
-                      <span id="calories-value" class="fw-bold">520</span>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div
-                      class="p-3 bg-light rounded d-flex justify-content-between"
-                    >
-                      <span>Protein</span>
-                      <span id="protein-value" class="fw-bold">28g</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="tips-tab" class="tab-pane fade">
-                <div id="tips-list">
-                  <div class="alert alert-warning">
-                    Use room temperature eggs
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 border-top pt-3">
-              <button
-                id="try-another-btn"
-                class="btn btn-warning text-white fw-bold"
-              >
-                <i class="fa-solid fa-rotate me-2"></i>
-                Try Another Recipe
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main> -->

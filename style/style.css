@@ -93,6 +93,31 @@
   background-color: white;
   border-radius: 12px;
 }
+/* @media (min-width: 1500px) {
+  .cook-time {
+    bottom: 200px;
+    left: 0;
+    right: 0;
+    margin: 16px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 12px;
+  }
+} */
+@media (min-width: 991px) {
+  .cook-time {
+        bottom: 200px;
+    left: 0;
+    right: 0;
+    margin: 16px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 12px;
+  }
+}
+/* .recipe-image{
+    height: ;
+} */
 
 .bookmark-icons button {
   background-color: #fdba74;
@@ -121,5 +146,57 @@
 }
 .nav-tabs .nav-link.active:hover {
   color: #6b7280;
-  
+}
+
+.bg-orange {
+  background-color: #ff6900;
+  color: white;
+}
+.bg-orange-100 {
+  background-color: #fffaec;
+}
+.round-radius {
+  border-radius: 12px;
+}
+
+.bg-orange-50 {
+  background-color: #ffedd4;
+  color: #f54900;
+}
+.bg-red-50 {
+  background-color: #ffe2e2;
+  color: #e7000b;
+}
+.bg-blue-50 {
+  background-color: #dbeafe;
+  color: #155dfc;
+}
+.bg-green-50 {
+  background-color: #dbfce7;
+  color: #00a63e;
+}
+.bg-purple-50 {
+  background-color: #fce7f3;
+  color: #e60076;
+}
+.bg-yellow-50 {
+  background-color: #fef9c2;
+  color: #d08700;
+}
+.side-border {
+  border-left: 3px solid #f54900;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#try-another-btn {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+#try-another-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #ea580c, #dc2626);
 }
