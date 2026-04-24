@@ -910,55 +910,6 @@ var recipes = [
   },
 ];
 
-//  {
-//     name: "Creamy Spaghetti Carbonara",
-//     description: "A classic Italian pasta dish with eggs, cheese, and pancetta",
-//     image:
-//       "gourmet spaghetti carbonara pasta dish, professional food photography, appetizing",
-//     imgCover:
-//       "https://images.unsplash.com/photo-1612874742237-6526221588e3?q=80&w=800&auto=format&fit=crop",
-//     prepTime: "15 min",
-//     cookTime: "20 min",
-//     totalTime: 35,
-//     servings: "4 people",
-//     difficulty: "Easy",
-//     category: "Italian",
-//     ratingsAverage: 4.8,
-//     ratingsQuantity: 234,
-//     ingredients: [
-//       "400g spaghetti pasta",
-//       "200g pancetta or guanciale, diced",
-//       "4 large eggs",
-//       "100g Pecorino Romano cheese, grated",
-//       "50g Parmesan cheese, grated",
-//       "Freshly ground black pepper",
-//       "Salt for pasta water",
-//     ],
-//     instructions: [
-//       "Bring a large pot of salted water to boil. Cook spaghetti according to package directions until al dente.",
-//       "While pasta cooks, heat a large skillet over medium heat. Add diced pancetta and cook until crispy, about 5-7 minutes.",
-//       "In a bowl, whisk together eggs, grated Pecorino Romano, and Parmesan cheese. Add plenty of freshly ground black pepper.",
-//       "Reserve 1 cup of pasta cooking water before draining. Drain pasta and immediately add to the skillet with pancetta.",
-//       "Remove skillet from heat. Quickly pour in egg mixture while tossing pasta vigorously. Add reserved pasta water as needed to create a creamy sauce.",
-//       "Serve immediately with extra cheese and black pepper on top. Enjoy your authentic carbonara!",
-//     ],
-//     nutrition: {
-//       calories: "520 kcal",
-//       protein: "28g",
-//       carbs: "62g",
-//       fat: "18g",
-//       fiber: "3g",
-//       sodium: "680mg",
-//     },
-//     tips: [
-//       "Use room temperature eggs for a smoother sauce consistency",
-//       "Work quickly when mixing eggs with hot pasta to avoid scrambling",
-//       "Reserve extra pasta water - it's the secret to perfect creaminess",
-//       "Freshly grated cheese makes all the difference in flavor",
-//       "Never add cream - authentic carbonara is made with eggs only",
-//     ],
-//   },
-
 var btn_recipes = document
   .getElementById("try-another-btn")
   .addEventListener("click", function () {
@@ -995,12 +946,10 @@ function anotherRecipe() {
 anotherRecipe();
 
 function addImage(imgCover) {
-  document.getElementById("recipe-image").innerHTML = `<img
-                
-                class="w-100 h-100 object-fit-cover"
-                src=${imgCover}
-                alt=""
-              />`;
+  document.getElementById("recipe-image").innerHTML =
+    `<img class="w-100 h-100 object-fit-cover"
+    src=${imgCover}
+    alt=""/>`;
 }
 
 function dispalyIngredients(ingredients) {
@@ -1013,8 +962,7 @@ function dispalyIngredients(ingredients) {
             <div class="badge text-white me-3 rounded-circle bg-orange">
                 ${i + 1}
             </div>
-            <span class="text-dark">
-                ${ingredients[i]}</span>`));
+            <span class="text-dark"> ${ingredients[i]}</span>`));
 
     ele.appendChild(item);
   }
@@ -1027,13 +975,10 @@ function dispalyInstructions(instructions) {
     ((item.className = "d-flex align-items-start mb-5"),
       (item.innerHTML = `
             <div
-                                class="badge text-white me-3 bg-orange p-3 round-radius"
-                              >
-                                ${i + 1}
-                              </div>
-                              <span class="text-dark"
-                                >${instructions[i]}</span
-                              >`));
+                class="badge text-white me-3 bg-orange p-3 round-radius">
+                ${i + 1}
+            </div>
+            <span class="text-dark">${instructions[i]}</span>`));
 
     ele.appendChild(item);
   }
@@ -1053,7 +998,8 @@ function dispalyTips(tips) {
   ele.innerHTML = "";
   for (var i = 0; i < tips.length; i++) {
     var item = document.createElement("div");
-    item.className = 'd-flex align-items-center mt-3  p-3 bg-orange-100 rounded-4 side-border'
+    item.className =
+      "d-flex align-items-center mt-3  p-3 bg-orange-100 rounded-4 side-border";
     item.innerHTML = `
             <div class="bg-orange-50 me-3 round-radius">
                             <i class="fa-solid fa-circle-check"></i>
